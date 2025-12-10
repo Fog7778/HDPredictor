@@ -69,7 +69,9 @@ class HDPredictor(QMainWindow):
             }
             """
         )
-        layout.addWidget(self.day_selector)
+        # acctual fix for the jumping T-T
+        dropdown_layout.addWidget(self.day_selector)
+        layout.addWidget(dropdown_container)
 
         spacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
         layout.addItem(spacer)
@@ -103,7 +105,7 @@ class HDPredictor(QMainWindow):
         layout.addItem(bottom_spacer)
 
         #fix for issue of the drop down moving with the buffer box
-    def set_label_style(self, state='default', initial=False):        
+    def set_label_style(self, state='default', initial=False):         
         min_height_value = "min-height: 50px;"
         base_style = f"padding: 10px; {min_height_value}"
         if initial or state == 'default':
