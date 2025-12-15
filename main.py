@@ -83,7 +83,7 @@ class HDPredictor(QMainWindow):
         self.result_label = QLabel("Whats the day??")
         self.result_label.setFont(QFont("SF Pro", 11, QFont.Weight.Bold))
         self.result_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self.result_label.setStyleSheet("color: #4b5563; padding: 10px; min-height: 30px;")
+        self.result_label.setStyleSheet("color: #34495e; padding: 2px; min-height: 30px;")
         
         #Loading screen
         result_frame = QFrame()
@@ -107,7 +107,7 @@ class HDPredictor(QMainWindow):
         #fix for issue of the drop down moving with the buffer box
     def set_label_style(self, state='default', initial=False):         
         min_height_value = "min-height: 50px;"
-        base_style = f"padding: 10px; {min_height_value}"
+        base_style = f"padding: 2px; {min_height_value}"
         if initial or state == 'default':
             self.result_label.setText("Whats the day??")
             self.result_label.setStyleSheet(f"color: #4b5563; {base_style}")
@@ -120,13 +120,13 @@ class HDPredictor(QMainWindow):
     def start_computation(self, index):
         if index == -1:
             self.result_label.setText("Whats the day??")
-            self.result_label.setStyleSheet("color: #4b5563; padding: 10px; min-height: 50px;")
+            self.result_label.setStyleSheet("color: #4b5563; padding: 2px; min-height: 50px;")
             return
             
         current_day = self.days[index]
         
         self.result_label.setText(f"uhhhhhhhhhhhhhhhhhhhhhh... {current_day}??")
-        self.result_label.setStyleSheet("color: #bdc3c7; padding: 10px; min-height: 30px;")
+        self.result_label.setStyleSheet("color: #bdc3c7; padding: 2px; min-height: 30px;")
 
         #Timer
         QTimer.singleShot(3000, lambda: self.show_next_day(index))
@@ -137,9 +137,9 @@ class HDPredictor(QMainWindow):
         
         next_day = self.days[next_day_index]
         
-        # 3. Display the final result
-        self.result_label.setText(f"Next day is {next_day} Twi")
-        self.result_label.setStyleSheet("color: #10b981; padding: 10px; min-height: 30px;")
+        #Display the final result
+        self.result_label.setText(f"gonna be {next_day} Twi")
+        self.result_label.setStyleSheet("color: #10b981; padding: 2px; min-height: 30px;")
 
 
 if __name__ == '__main__':
